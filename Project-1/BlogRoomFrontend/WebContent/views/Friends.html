@@ -1,0 +1,14 @@
+
+<div ng-controller="FriendCtrl">
+<center><h3 style="color:#f4511e;">Friends</h3></center>
+<div class="card" ng-repeat="friend in listOfFriends" style="width:350px;background:Honeydew;margin:auto;">
+		<div ng-if="listOfFriends.length==0">You have no friends..!</div>
+    	<div class="card-body">
+    		<img alt="No Image" src="http://localhost:8081/BlogroomMiddlewhere/getprofilepic/{{friend.email}}" onerror="this.src='resources/images/user1.png'" height="60px" width="60px">
+      		<h4 class="card-title">	{{friend.firstName}}&nbsp;{{friend.lastName}}</h4>
+      		<p class="card-text">{{friend.role}}</p>
+      		<p class="card-text"><b>Email : </b>&nbsp;{{friend.email}}</p>
+      		<p class="card-text"><b>Contact :</b>&nbsp;{{friend.phoneNo}}</p>
+      	</div>
+</div>
+</div>

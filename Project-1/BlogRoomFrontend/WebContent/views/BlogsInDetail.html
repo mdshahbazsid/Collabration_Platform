@@ -1,0 +1,58 @@
+
+<div ng-controller="BlogInDetailCtrl">
+<center><h3 style="color:#f4511e;">Details of Blog</h3></center>
+<div class="card" style="width:700px;background:Honeydew;margin:auto;">
+    	<div class="card-body">
+    		
+      		<h4 class="card-title"><b>Blog Title :</b>&nbsp;{{blogPost.blogTitle}}</h4>
+      		<p class="card-text"><b>Posted On :&nbsp;</b>{{blogPost.postedOn |date :'yyyy-MM-dd'}}</p>
+      		<p class="card-text">
+      			<b>Posted By :&nbsp;</b>
+      			<img alt="No Image" src="http://localhost:8081/BlogroomMiddlewhere/getprofilepic/{{blogPost.postedBy.email}}" onerror="this.src='resources/images/user1.png'" height="60px" width="60px">
+      			{{blogPost.postedBy.firstName}}&nbsp;{{blogPost.postedBy.lastName}}
+      		</p>
+      		<p class="card-text"><b>Blog Content :&nbsp;</b>{{blogPost.blogContent}}</p>
+      		<p class="card-text">
+      		
+      		<div ng-show="isLiked"><!-- result of the query select * from blogpostlikes where post_id=? and u_email=? -->
+   			<a href=""><i class="fas fa-thumbs-up" style="color:blue" ng-click="updateLikes(blogPost.blogId)"></i></a>
+			<!-- delete data from blogpostlikes and decrement the number of likes -->
+			</div>
+			<div ng-show="!isLiked">
+			<a href=""><i class="fas fa-thumbs-up" style="color:black" ng-click="updateLikes(blogPost.blogId)"></i></a>
+			 <!-- insert data into blogpostlikes and increment the number of likes -->
+			</div>
+			{{blogPost.likes}} likes
+			</p>
+		</div>
+      	
+<div>      	
+      	<hr/>
+      	<div class="input-group">
+  			<div class="input-group-prepend">
+    			<span class="input-group-text">Comment : </span>
+  			</div>
+  			<span style="color:red;">{{error}}</span>
+  			<textarea class="form-control" ng-model="commentTxt" required="required"></textarea>
+  			<button class="btn btn-primary" ng-click="addBlogComment(blogPost,commentTxt)"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Post Comment</button>
+		</div>
+		<div ng-hide="blogComment==undefined">
+			<p>{{blogComment.commentTxt}}</p>
+			<p ng-if="user.email==comments.commentedBy.email"><b>Commented By :</b>&nbsp;You</p>
+			</p><b>Posted on :</b>&nbsp;{{blogComment.commentedOn | date : 'yyyy:MM:dd:mm:ss'}}</p>
+		</div>
+		<button class="btn btn-info" ng-click="getComments(blogPost.blogId)">View All Comments</button>
+		<div>
+		<hr/>
+			<ul style="list-style:none;">
+				<li ng-repeat="comments in blogComments | orderBy:'-commentedOn'">
+					{{comments.commentTxt}}&nbsp;:&nbsp;
+					<span ng-if="user.email!=comments.commentedBy.email"><b>{{comments.commentedBy.firstName}}</b></span><span ng-if="user.email==comments.commentedBy.email"><b>You</b></span>
+					on&nbsp;<b>{{comments.commentedOn | date : 'yyyy-MM-dd'}}</b><br>
+				</li>
+			</ul>
+		</div>
+		<hr/>
+		<a href="#/getapprovedblogs" class="btn btn-info" role="button">Get Blogs</a>
+</div>
+</div>

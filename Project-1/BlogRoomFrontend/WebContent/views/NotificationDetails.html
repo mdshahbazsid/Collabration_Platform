@@ -1,0 +1,6 @@
+<div ng-controller="NotificationCtrl">
+	<div class="alert alert-primary" role="alert">
+  		Your Blog Titled : <b>"{{notification.blogTitle}}"</b> is <b>"{{notification.approvalStatus}}"</b>
+  	    <span ng-show="notification.approvalStatus=='REJECTED'">for the reason <b>"{{notification.rejectionReason}}"</b></span>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+
+<div ng-controller="BlogPostCtrl">
+<center><h3 style="color:#f4511e;">Blogs</h3></center>
+<div ng-if="listOfBlogsApproved.length==0">No Blogs Approved yet !</div>
+<div class="card" ng-repeat="blog in listOfBlogsApproved" style="width:700px;background:Honeydew;margin:auto;">
+    	<div class="card-body">
+    		<img alt="No Image" src="http://localhost:8081/BlogroomMiddlewhere/getprofilepic/{{blog.postedBy.email}}" onerror="this.src='resources/images/user1.png'" height="60px" width="60px">
+      		<h4 class="card-title">Blog Title :&nbsp;<a href="#/getblog/{{blog.blogId}}">{{blog.blogTitle}}</a><br></h4>
+      		<p class="card-text"><b>Posted On :&nbsp;</b>{{blog.postedOn |date :'yyyy-MM-dd'}}</p>
+      		<p class="card-text"><b>Posted By :&nbsp;</b>{{blog.postedBy.firstName}}&nbsp;{{blog.postedBy.lastName}}</p>
+      	</div>
+</div>
+</div>

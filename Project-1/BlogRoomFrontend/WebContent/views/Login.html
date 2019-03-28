@@ -1,0 +1,74 @@
+<style>
+
+.login-container{
+    margin: auto;
+}
+.login-form-2{
+	margin: auto;
+    padding: 5%;
+    background: #f4511e;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.btnSubmit {
+  width: 100%;
+  border: 1px solid #343a40;
+  border-radius: 1rem;
+  background-color:#343a40;
+  padding: 1.5%;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+.btnSubmit:hover {
+  color: #f4511e;
+}
+</style>
+
+<div class="container login-container" ng-controller="UserCtrl">
+            <div class="row">
+                <div class="col-md-6 login-form-2">
+                    <h3 class="display-4">Login</h3>
+                    <form>
+                    	<span style="color:#fff;"><b>{{error.errorMessage}}</b></span>
+                        <div class="form-group">
+                            <input type="email" ng-model="user.email" class="form-control" placeholder="Your Email" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" ng-model="user.password" id="myInput" class="form-control" placeholder="Your Password" required="required"/><br>
+                            <input type="checkbox" onclick="myFunction()"><span style="color:#fff;">&nbsp;Show Password</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" ng-click="login(user)" class="btnSubmit" value="Login" />
+                        </div>
+                        <div class="form-group">
+							<span style="color:#fff;">Didn't have account ? <a style="color:#fff;" href="#/register"><i>Register</i></a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type == "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+
+
+
+

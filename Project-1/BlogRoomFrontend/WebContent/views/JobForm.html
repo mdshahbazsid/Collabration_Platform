@@ -1,0 +1,59 @@
+
+<center>
+<div ng-controller="JobCtrl">
+	<h3 style="color:#f4511e;">Job Form</h3>
+	<span style="color:red;">{{error.errorMessage}}</span>
+	<div class="card" style="width:450px;background:Snow;">
+    	<div class="card-body">
+      		<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Job Title</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.jobTitle" required="required">
+  			</div>
+  			<div class="form-group">
+  				<label for="comment">Job Description : </label>
+  				<textarea class="form-control" ng-model="job.jobDescription" rows="3"></textarea>
+			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Skills Required</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.skillsRequired"><br>
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Salary</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.salary">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Location</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.location">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Company Name</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.companyName">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Qualifications</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.qualifications">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Years of Experience</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="job.yrsOfExperience">
+  			</div>
+      		<button type="button" ng-click="addJob(job)" class="btn btn-primary btn-block">Add Job</button>
+    	</div>
+  	</div>
+</div>
+</center>
+

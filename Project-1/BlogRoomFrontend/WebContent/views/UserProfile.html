@@ -1,0 +1,64 @@
+<center>
+<div ng-controller="UserCtrl">
+	<div class="card" style="width:450px;background:Snow;">
+    	<img class="card-img-top" src="http://localhost:8081/BlogroomMiddlewhere/getprofilepic/{{user.email}}" onerror="this.src='resources/images/user1.png'" style="width:60%"/>
+    	<div class="card-body">
+      		<h4 class="card-title">{{user.firstName}}&nbsp;{{user.lastName}}</h4>
+      		<p class="card-text">{{user.role}}</p>
+      		<p class="card-text">Welcome</p>
+      		<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Email</span>
+    			</div>
+    			<input type="email" class="form-control" ng-model="user.email" required="required" disabled="disabled">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Phone No.</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="user.phoneNo"><br>
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">First Name</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="user.firstName">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Last Name</span>
+    			</div>
+    			<input type="text" class="form-control" ng-model="user.lastName">
+  			</div>
+  			<div class="input-group mb-3">
+    			<div class="input-group-prepend">
+      				<span class="input-group-text">Password</span>
+    			</div>
+    			<input type="password" class="form-control" ng-model="user.password" id="myInput" required="required">
+  			</div>
+  			<input type="checkbox" class="form-control" onclick="myFunction()">
+  			<span>Show Password</span>
+  			<div class="form-group">
+      			<label for="sel1">Select Role (select one):</label>
+      			<select class="form-control" ng-model="user.role" id="sel1" name="sellist1">
+        			<option value="STUDENT">Student</option>
+					<option value="ALUMINI">Alumini</option>
+					<option value="EMPLOYEE">Employee</option>
+      			</select>
+  			</div>
+      		<button type="button" ng-click="updateProfile(user)" class="btn btn-primary btn-block">Update Profile</button>
+    	</div>
+  	</div>
+</div>
+</center>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type == "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>

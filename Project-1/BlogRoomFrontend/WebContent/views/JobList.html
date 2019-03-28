@@ -1,0 +1,19 @@
+
+<div ng-controller="JobCtrl">
+<center><h3 style="color:#f4511e;">Recent Jobs</h3></center>
+<div class="card" ng-repeat="job in listOfJobs" style="width:800px;background:Honeydew;margin:auto;">
+    	<div class="card-body">
+      		<h4 class="card-title"><a href="" ng-click="showJobDetails(job.jobId)">{{job.jobTitle}}</a></h4>
+      		<p class="card-text"><b>Posted On :&nbsp;</b>{{job.postedOn |date :'yyyy-MM-dd'}}</p>
+      		<p class="card-text" ng-show="showJob && id==job.jobId">
+      			<b>Job Description : </b>{{job.jobDescription}}<br>
+				<b>Skills Required : </b>{{job.skillsRequired}}<br>
+				<b>Salary : </b>{{job.salary}}<br>
+				<b>Location : </b>{{job.location}}<br>
+				<b>Company Name : </b>{{job.companyName}}<br>
+				<b>Qualifications : </b>{{job.qualifications}}<br>
+				<b>Years of Experience : </b>{{job.yrsOfExperience}}
+      		</p>
+      	</div>
+</div>
+</div>

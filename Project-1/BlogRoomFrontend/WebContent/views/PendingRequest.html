@@ -1,0 +1,21 @@
+
+<div ng-controller="FriendCtrl">
+<center><h4 style="color:#f4511e;">Pending Request</h3></center>
+<div class="card" ng-repeat="pendingRequest in listOfPendingRequest" style="width:350px;margin:auto;">
+		<div ng-if="listOfPendingRequest.length==0">There are no Pending requests...!</div>
+    	<div class="card-body">
+    		<img alt="No Image" src="http://localhost:8081/BlogroomMiddlewhere/getprofilepic/{{pendingRequest.fromId.email}}" onerror="this.src='resources/images/user1.png'" height="60px" width="60px">
+      		<h4 class="card-title">{{pendingRequest.fromId.firstName}}&nbsp;{{pendingRequest.fromId.lastName}}</h4>
+      		<p class="card-text">{{pendingRequest.fromId.email}}</p>
+      		<p class="card-text">{{pendingRequest.fromId.role}}</p>
+      		<p class="card-text">
+      			<button class="btn btn-success" ng-click="acceptRequest(pendingRequest)">
+      				<i class="fa fa-check" aria-hidden="true"></i>&nbsp;Accept
+      			</button>
+      			<button class="btn btn-danger" ng-click="deleteRequest(pendingRequest)">
+      				<i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete
+      			</button>
+      		</p>
+      	</div>
+</div>
+</div>
