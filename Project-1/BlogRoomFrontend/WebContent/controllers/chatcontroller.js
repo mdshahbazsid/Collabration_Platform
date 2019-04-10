@@ -8,9 +8,10 @@ app.controller('ChatCtrl',function($rootScope,$scope,ChatService){
 	$scope.chats = [];    //Array of chats in message
 	
 	$scope.$on('sockConnected',function(event,frame){
+		
 		alert('Successfully Connected with Web Socket')
 		$scope.userName = $rootScope.user.firstName
-		alert($scope.userName+'Joined the ChatRoom')
+		alert($scope.userName +' has Joined the ChatRoom')
 		
 		$scope.stompClient.subscribe("/app/join/"+$scope.userName,function(message){
 			console.log(message.body)
@@ -26,8 +27,7 @@ app.controller('ChatCtrl',function($rootScope,$scope,ChatService){
 				$scope.addUser(user);
 				$scope.latestUser = user;
 				$scope.$apply();
-				alert($scope.latestUser + 'has Joined the Chat')
-				$('#joinedChat').fadeIn(500).delay(1000).fadeOut(500);
+				alert($scope.latestUser + ' has Joined the Chat')
 			}
 		})
 

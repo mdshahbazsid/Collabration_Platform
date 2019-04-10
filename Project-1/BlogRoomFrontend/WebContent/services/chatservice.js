@@ -1,11 +1,6 @@
 /**
  * 
  */
-/*app.filter('reverse',function(){
-	return function(items){
-		return items.slice().reverse();
-	};
-});
 
 app.directive('ngFocus',function(){
 	return function(scope,element,attrs){
@@ -13,7 +8,7 @@ app.directive('ngFocus',function(){
 			$('.' + attrs.ngFocus)[0].focus();
 		});
 	};
-});*/
+});
 
 app.factory('ChatService',function($rootScope){
 	
@@ -22,7 +17,7 @@ app.factory('ChatService',function($rootScope){
 	console.log(stompClient)
 	
 	stompClient.connect('','',function(frame){
-		
+		alert('in connect function in Service')
 		$rootScope.$broadcast('sockConnected',frame)
 	})
 	return{
