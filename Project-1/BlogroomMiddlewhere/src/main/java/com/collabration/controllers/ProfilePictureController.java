@@ -52,7 +52,7 @@ public class ProfilePictureController {
 			return null;
 		}
 		
-		ProfilePicture profilePicture = profilePictureDAO.getProfilePicture(email);
+		ProfilePicture profilePicture = profilePictureDAO.getProfilePicture(email+".com");
 		if(profilePicture == null) 
 		{
 			return null;
