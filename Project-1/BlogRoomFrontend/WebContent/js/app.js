@@ -20,6 +20,8 @@ app.config(function($routeProvider){
 	.when('/friends',{templateUrl:'views/Friends.html',controllers:'FriendCtrl'})
 	.when('/chat',{templateUrl:'views/Chat.html',controllers:'ChatCtrl'})
 	.when('/uploadprofilepic',{templateUrl:'views/UploadProfilePicture.html'})
+	.when('/aboutus',{templateUrl:'views/AboutUs.html',controllers:'UserCtrl'})
+	.when('/contactus',{templateUrl:'views/ContactUs.html',controllers:'UserCtrl'})
 	.when('/home',{templateUrl:'views/Home.html',controllers:'HomeCtrl'})
 	.otherwise({templateUrl:'views/Home.html'})
 	
